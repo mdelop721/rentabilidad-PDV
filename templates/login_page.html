@@ -1,0 +1,142 @@
+<!--<!doctype html>-->
+<!--<html lang="es">-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <title> Formulario de Acceso </title>    -->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <meta name="author" content="Videojuegos & Desarrollo">-->
+<!--    <meta name="description" content="Ejemplo de formulario de acceso basado en HTML5 y CSS">-->
+<!--    <meta name="keywords" content="login,formulariode acceso html">-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> -->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">-->
+<!--    <style type="text/css">-->
+<!--    </style>-->
+<!--    <script type="text/javascript">-->
+<!--    </script>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div id="contenedor">-->
+<!--        <div id="contenedorcentrado">-->
+<!--            <div id="login">-->
+<!--                <form id="loginform" method="POST" action="">-->
+<!--                    {{ form.hidden_tag() }}-->
+<!--                    {{form.username.label}}-->
+<!--                    {{ form.username }}-->
+<!--                    {{form.password.label}}-->
+<!--                    {{ form.password }}-->
+<!--                    <div class="form-field">-->
+<!--                      {{ form.submit }}-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--                   <script>-->
+<!--                   // Función para limpiar los campos del formulario cuando se detecta un retroceso en el navegador-->
+<!--                      function clearFormFields() {-->
+<!--                         document.getElementById("loginform").reset();-->
+<!--                      }-->
+
+<!--                   // Escuchar el evento 'popstate' para detectar cuando se realiza un retroceso en el navegador-->
+<!--                   window.addEventListener("popstate", function(event) {-->
+<!--                       clearFormFields();-->
+<!--                   });-->
+<!--                  </script>-->
+<!--            </div>-->
+<!--            <div id="derecho">-->
+<!--		&lt;!&ndash; Aquí agregamos la imagen &ndash;&gt;-->
+<!--		<div class="logo-empresa">-->
+<!--	                <img src="static/imagenes/logo_prime.png" alt="Imagen de ejemplo">-->
+<!--		</div>-->
+<!--                <div class="titulo">-->
+<!--                    BIENVENIDO-->
+<!--                </div>-->
+<!--                <hr>-->
+<!--                <div class="pie-form">-->
+<!--                    <a href="{{url_for('register')}}">¿No tienes Cuenta? Registrate</a>-->
+<!--                    <hr>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title> Formulario de Acceso </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Videojuegos & Desarrollo">
+    <meta name="description" content="Ejemplo de formulario de acceso basado en HTML5 y CSS">
+    <meta name="keywords" content="login,formulariode acceso html">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style type="text/css">
+        .flash-message {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+            position: relative;
+            border-radius: 4px;
+            top: -17px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="contenedor">
+        <div id="contenedorcentrado">
+            <div id="login">
+                <form id="loginform" method="POST" action="">
+                    {{ form.hidden_tag() }}
+                    {{ form.username.label }}
+                    {{ form.username }}
+                    {{ form.password.label }}
+                    {{ form.password }}
+                    <div class="form-field">
+                        {{ form.submit }}
+                    </div>
+                </form>
+            </div>
+            <div id="derecho">
+                <!-- Mostrar mensaje flash -->
+                <div id="mensaje-flash">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="flash-message">{{ messages[0] }}</div>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <!-- Aquí agregamos la imagen -->
+                <div class="logo-empresa">
+                    <img src="static/imagenes/logo_prime.png" alt="Imagen de ejemplo">
+                </div>
+                <div class="titulo">
+                    BIENVENIDO
+                </div>
+                <hr>
+                <div class="pie-form">
+                    <a href="{{ url_for('register') }}">¿No tienes Cuenta? Registrate</a>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var usernameInput = document.getElementById("username");
+    var flashMessage = document.querySelector(".flash-message");
+
+    usernameInput.addEventListener("input", function() {
+      // Ocultar el mensaje flash
+      flashMessage.style.display = "none";
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page with Background Image Example</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style_register.css') }}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="bg"></div>
+
+<form>
+<!-- Aquí agregamos la imagen -->
+  <div class="logo-empresa">
+    <img src="static/imagenes/logo_prime.png" alt="Imagen de ejemplo">
+  </div>
+  {{ form.username }}
+  {{ form.password }}
+  {{ form.submit }}
+<hr>
+<div class="pie-form">
+  <a href="{{url_for('index')}}">¿Ya tienes cuenta? Inicia Sesión</a>
+<hr>
+</form>
+<!-- partial -->
+  
+</body>
+</html>

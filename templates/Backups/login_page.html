@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title> Formulario de Acceso </title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Videojuegos & Desarrollo">
+    <meta name="description" content="Ejemplo de formulario de acceso basado en HTML5 y CSS">
+    <meta name="keywords" content="login,formulariode acceso html">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="contenedorcentrado">
+            <div id="login">
+                <form id="loginform">
+                    <label for="usuario">Usuuuuuu</label>
+                    <input id="usuario" type="text" name="usuario" placeholder="Usuario" required>
+                    
+                    <label for="password">Contraseña</label>
+                    <input id="password" type="password" placeholder="Contraseña" name="password" required>
+                    
+                    <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                </form>
+            </div>
+            <div id="derecho">
+		<!-- Aquí agregamos la imagen -->
+		<div class="logo-empresa">
+	                <img src="static/imagenes/logo_prime.png" alt="Imagen de ejemplo">
+		</div>
+                <div class="titulo">
+                    BIENVENIDO
+                </div>
+                <hr>
+                <div class="pie-form">
+                    <a href="{{url_for('register')}}">¿No tienes Cuenta? Registrate</a>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
